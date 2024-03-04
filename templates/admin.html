@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Warehouse Status Managment
+{% endblock %}
+
+{% block main %}
+    <form action="/admin" method="post">
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="name" placeholder="Name" type="text">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="quantity" placeholder="Quantity [kg]" type="number">
+        </div>
+        <button class="btn btn-primary" type="submit">Add</button>
+    </form>
+{% endblock %}

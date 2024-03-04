@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Admin Login
+{% endblock %}
+
+{% block main %}
+    <form action="/loginadmin" method="post">
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="username" name="admin_username" placeholder="Admin Username" type="text">
+        </div>
+        <div class="mb-3">
+            <input class="form-control mx-auto w-auto" id="password" name="admin_password" placeholder="Admin Password" type="password">
+        </div>
+        <button class="btn btn-primary" type="submit">Log In As Admin</button>
+    </form>
+{% endblock %}

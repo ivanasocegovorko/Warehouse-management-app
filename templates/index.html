@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Warehouse Overview
+{% endblock %}
+
+{% block main %}
+    {% if session["user_id"] %}
+        <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Quantity [kg]</th>
+                <th scope="col">Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in warehousedb %}
+                <tr>
+                    <td>{{ i['name'] }}</td>
+                    <td>{{ i['quantity'] }}</td>
+                    <td>{{ i['datetime'] }}</td>
+                    {% if session["user_id"] == 'zoran' %}
+                    <td><form action="/delete" method="POST"><input type="hidden" name="delete" value="{{  i['id']  }}"><button class="btn btn-outline-dark btn-rounded" type="submit" name="delete">Delete</button></form></td>
+                    {% endif %}
+                </tr>
+               
+            {% endfor %}
+        </tbody>
+        </table>
+    {% endif %}
+{% endblock %}
